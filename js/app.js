@@ -17,7 +17,8 @@
  * Define Global Variables
  * 
 */
-
+const navigation = document.getElementById('navbar__list');
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -35,6 +36,18 @@
 
 // build the nav
 
+const navCreator = ()=>{
+    let navContainer = '';
+    sections.forEach(section => {
+        const sectionID = section.id;
+        const sectionDataNav = section.dataset.nav;
+
+        navContainer+= `<li><a class="menu__link" href="#${sectionID}">${sectionDataNav}</a></li>`
+    })
+    navigation.innerHTML= navContainer;
+}
+
+navCreator();
 
 // Add class 'active' to section when near top of viewport
 
