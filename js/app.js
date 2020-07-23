@@ -52,8 +52,8 @@ const navCreator = ()=>{
     sections.forEach(section => {
         const sectionID = section.id;
         const sectionDataNav = section.dataset.nav;
-
-        navContainer+= `<li class={${sectionID}}><a class="menu__link"  href="#${sectionID}">${sectionDataNav}</a></li>`
+        navContainer+= `<li><a class="menu__link"  href="#${sectionID}" data-link="${section.dataset.nav}">${sectionDataNav}</a></li>`
+        
     })
     navigation.innerHTML= navContainer;
 }
@@ -74,7 +74,20 @@ const sectionActivation = () => {
                 item.classList.remove('your-active-class');
             }
         });
+        
+        // add active class to menu item
+            const navLink = document.querySelector(`[data-link="${section.dataset.nav}"]`);
+            navLink.classList.add('active__link');
+            console.log(navLink)
 
+        // remove active class
+        const menuLinks = document.querySelectorAll('.menu__link');
+        menuLinks.forEach( link =>{
+            if (link != navLink && link.classList.contains('active__link')) {
+                link.classList.remove('active__link');
+            }
+        });
+        
         
     });   
        
