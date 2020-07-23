@@ -78,7 +78,7 @@ const sectionActivation = () => {
         // add active class to menu item
             const navLink = document.querySelector(`[data-link="${section.dataset.nav}"]`);
             navLink.classList.add('active__link');
-            console.log(navLink)
+            //console.log(navLink)
 
         // remove active class
         const menuLinks = document.querySelectorAll('.menu__link');
@@ -96,11 +96,19 @@ const sectionActivation = () => {
 
 
 
-
-
-
 // Scroll to anchor ID using scrollTO event
 
+
+const scrollToClick = () => {    
+    const links = document.querySelectorAll('.navbar__menu a');
+    links.forEach (link =>{
+        link.addEventListener('click', () => {
+            link.scrollIntoView();
+        });
+    });
+    
+
+};
 /**
  * End Main Functions
  * Begin Events
@@ -112,7 +120,7 @@ const sectionActivation = () => {
 navCreator();
 
 // Scroll to section on link click
-
+scrollToClick()
 
 // Set sections as active
 
