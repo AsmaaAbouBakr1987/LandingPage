@@ -103,7 +103,9 @@ const scrollToClick = () => {
     const links = document.querySelectorAll('.navbar__menu a');
     links.forEach (link =>{
         link.addEventListener('click', () => {
-            link.scrollIntoView();
+            link.scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
     
